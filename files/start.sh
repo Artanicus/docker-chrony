@@ -2,6 +2,7 @@
 
 # Set The Variables
 CMD_CIDR=${CMD_CIDR:-"127/8"}
+CMD_BIND=${CMD_BIND:-"127.0.0.1"}
 NTP_SERVER=${NTP_SERVER:-"pool.ntp.org"}
 SYNC_RTC=${SYNC_CLOCK:-"true"}
 ALLOW_CIDR=${ALLOW_CIDR:-""}
@@ -22,6 +23,7 @@ else
   mkdir /etc/chrony
   cat << EOF > "${CONFIG}"
 cmdallow ${CMD_CIDR}
+bindcmdaddress ${CMD_BIND}
 pool ${NTP_SERVER} iburst
 initstepslew 10 ${NTP_SERVER}
 driftfile /var/lib/chrony/chrony.drift

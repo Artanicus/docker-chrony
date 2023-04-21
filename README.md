@@ -10,6 +10,7 @@ This docker image provides a small chrony (NTP) image which will sync the local 
 ## Configuring At Runtime
 There are a number of environment variables which can be configured when the container is started in order to change it's default behaviour:
 - **CMD_CIDR -** The CIDR that will allow commands to the running chrony daemon. The default value for this is 127/8 (localhost)
+- **CMD_BIND -** The ip address the command interface is bound to. The default value for this is 127.0.0.1 (localhost)
 - **ALLOW_CIDR -** The CIDR which allows NTP clients to connect and get the time. The default is to not allow external clients.
 - **SYNC_RTC -** Sync the realtime clock on the machine/instance the service is running. This is enabled by default.
 - **NTP_SERVER -** The NTP server to get the time to set from. The default is pool.ntp.org.
